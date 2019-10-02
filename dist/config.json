@@ -1,0 +1,42 @@
+{
+  "CACHE_VOLUME_NAME": {
+    "value": "auth-cache-volume",
+    "type": null
+  },
+  "CACHE_SECRET_NAME": {
+    "value": "auth-cache-secret",
+    "type": null
+  },
+  "CACHE_CLAIM_NAME": {
+    "value": "auth-cache-volume-claim",
+    "type": null
+  },
+  "DATA_VOLUME_NAME": {
+    "value": "auth-data-volume",
+    "type": null
+  },
+  "DATA_CLAIM_NAME": {
+    "value": "auth-data-volume-claim",
+    "type": null
+  },
+  "WEB_DEPLOYMENT_NAME": {
+    "value": "auth-web-deployment",
+    "type": null
+  },
+  "GRAPH_DEPLOYMENT_NAME": {
+    "value": "auth-graph-deployment",
+    "type": null
+  },
+  "ACCOUNT_GRAPH_DEPLOYMENT_NAME": {
+    "value": "auth-account-graph-deployment",
+    "type": null
+  },
+  "CACHE_STATEFUL_NAME": {
+    "value": "auth-cache-stateful",
+    "type": null
+  },
+  "DATA_STATEFUL_NAME": {
+    "value": "auth-data-stateful",
+    "type": null
+  }
+}

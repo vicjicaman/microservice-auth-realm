@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "${WEB_DEPLOYMENT_NAME}"
+  namespace: "${NAMESPACE@microservice-config}"
+  labels:
+    app: "${WEB_DEPLOYMENT_NAME}"
+    moduleid: microservice-auth-realm
+    version: 1.70.4-master
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "${WEB_DEPLOYMENT_NAME}"
+  template:
+    metadata:
+      labels:
+        app: "${WEB_DEPLOYMENT_NAME}"
+    spec:
+      containers:
+        - name: app
+          image: "repoflow/microservice-auth-web-container:1.70.3-master"
+          env:
+            - name: HOST
+              value: "${HOST@microservice-config}"
+            - name: AUTH_BASE_ROUTE_APP
+              value: "${WEB_BASE_ROUTE@microservice-auth-config}"
+            - name: AUTH_INTERNAL_PORT_APP
+              value: "${WEB_INTERNAL_PORT@microservice-auth-config}"
+            - name: AUTH_EXTERNAL_URL_GRAPH
+              value: "${GRAPH_EXTERNAL_URL@microservice-auth-config}"
+            - name: AUTH_INTERNAL_URL_GRAPH
+              value: "${GRAPH_INTERNAL_URL@microservice-auth-config}"
+            - name: RESOURCE_BASE_ROUTE
+              value: "${RESOURCE_BASE_ROUTE@microservice-home-config}"
+          ports:
+            - containerPort: "${WEB_INTERNAL_PORT@microservice-auth-config}"

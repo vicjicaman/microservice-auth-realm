@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-account-graph-deployment
+  namespace: microservices-namespace
+  labels:
+    app: auth-account-graph-deployment
+    moduleid: microservice-auth-realm
+    version: 1.70.4-master
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: auth-account-graph-deployment
+  template:
+    metadata:
+      labels:
+        app: auth-account-graph-deployment
+    spec:
+      containers:
+        -
+          name: app
+          image: 'repoflow/microservice-account-graph-container:1.70.3-master'
+          env:
+            -
+              name: ACCOUNT_ROUTE_GRAPH
+              value: /graphql
+            -
+              name: ACCOUNT_INTERNAL_PORT_GRAPH
+              value: '4000'
+            -
+              name: AUTH_DATA_INTERNAL_URL
+              value: 'http://auth-data-service.microservices-namespace:27017/auth'
+          ports:
+            -
+              containerPort: 4000
