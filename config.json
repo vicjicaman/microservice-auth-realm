@@ -6,7 +6,7 @@
     },
     "microservice-auth-config": {
       "url": "github.com:vicjicaman/microservice-auth-config.git",
-      "version": "1.70.0-data-reconnect-initial-prod"
+      "version": "1.70.5-master"
     },
     "microservice-resources-config": {
       "url": "github.com:vicjicaman/microservice-resources-config.git",
