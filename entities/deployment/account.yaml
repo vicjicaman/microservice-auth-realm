@@ -1,31 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "${ACCOUNT_GRAPH_DEPLOYMENT_NAME}"
-  namespace: "${NAMESPACE@microservice-config}"
+  name: '${ACCOUNT_GRAPH_DEPLOYMENT_NAME}'
+  namespace: '${NAMESPACE@microservice-config}'
   labels:
-    app: "${ACCOUNT_GRAPH_DEPLOYMENT_NAME}"
+    app: '${ACCOUNT_GRAPH_DEPLOYMENT_NAME}'
     moduleid: microservice-auth-realm
-    version: 1.70.4-master
+    version: 1.70.0-data-reconnect-initial-prod
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: "${ACCOUNT_GRAPH_DEPLOYMENT_NAME}"
+      app: '${ACCOUNT_GRAPH_DEPLOYMENT_NAME}'
   template:
     metadata:
       labels:
-        app: "${ACCOUNT_GRAPH_DEPLOYMENT_NAME}"
+        app: '${ACCOUNT_GRAPH_DEPLOYMENT_NAME}'
     spec:
       containers:
-        - name: app
-          image: "repoflow/microservice-account-graph-container:1.70.3-master"
+        -
+          name: app
+          image: 'repoflow/microservice-account-graph-container:1.70.3-master'
           env:
-            - name: ACCOUNT_ROUTE_GRAPH
-              value: "${ACCOUNT_GRAPH_BASE_ROUTE@microservice-auth-config}"
-            - name: ACCOUNT_INTERNAL_PORT_GRAPH
-              value: "${ACCOUNT_GRAPH_INTERNAL_PORT@microservice-auth-config}"
-            - name: AUTH_DATA_INTERNAL_URL
-              value: "${DATA_INTERNAL_URL@microservice-auth-config}"
+            -
+              name: ACCOUNT_ROUTE_GRAPH
+              value: '${ACCOUNT_GRAPH_BASE_ROUTE@microservice-auth-config}'
+            -
+              name: ACCOUNT_INTERNAL_PORT_GRAPH
+              value: '${ACCOUNT_GRAPH_INTERNAL_PORT@microservice-auth-config}'
+            -
+              name: AUTH_DATA_INTERNAL_URL
+              value: '${DATA_INTERNAL_URL@microservice-auth-config}'
           ports:
-            - containerPort: "${ACCOUNT_GRAPH_INTERNAL_PORT@microservice-auth-config}"
+            -
+              containerPort: '${ACCOUNT_GRAPH_INTERNAL_PORT@microservice-auth-config}'
