@@ -38,7 +38,7 @@ spec:
               name: AUTH_CACHE_SECRET_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: '${CACHE_SECRET_NAME}'
+                  name: '${CACHE_SECRET_NAME@microservice-auth-config}'
                   key: password
             -
               name: ACCOUNT_INTERNAL_URL_GRAPH
