@@ -10,14 +10,14 @@ spec:
   serviceName: auth-cache-service
   selector:
     matchLabels:
-      app: auth-data-stateful
+      app: auth-cache-stateful
   replicas: 1
   template:
     metadata:
       labels:
         moduleid: microservice-auth-cache
         version: 1.70.3-master
-        app: auth-data-stateful
+        app: auth-cache-stateful
     spec:
       terminationGracePeriodSeconds: 10
       containers:

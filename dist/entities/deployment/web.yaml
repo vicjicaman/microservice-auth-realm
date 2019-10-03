@@ -39,7 +39,7 @@ spec:
               value: 'http://auth-graph-service.microservices-namespace:4000/auth/backend/graphql'
             -
               name: RESOURCE_BASE_ROUTE
-              value: '${RESOURCE_BASE_ROUTE@microservice-home-config}'
+              value: /resources
           ports:
             -
               containerPort: 3000

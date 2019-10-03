@@ -4,7 +4,7 @@ metadata:
   name: "auth-data-volume"
   namespace: microservices-namespace
   labels:
-    service: auth-data
+    service: "auth-data-service"
 spec:
   capacity:
     storage: "1Gi"
@@ -12,4 +12,4 @@ spec:
     - "ReadWriteOnce"
   awsElasticBlockStore:
     fsType: "ext4"
-    volumeID: "vol-0572afea6012336e4"
+    volumeID: "vol-0572afea6012336e7"
