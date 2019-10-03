@@ -1,0 +1,15 @@
+apiVersion: "v1"
+kind: "PersistentVolume"
+metadata:
+  name: "auth-cache-volume"
+  namespace: microservices-namespace
+  labels:
+    service: "auth-cache-service"
+spec:
+  capacity:
+    storage: "1Gi"
+  accessModes:
+    - "ReadWriteOnce"
+  awsElasticBlockStore:
+    fsType: "ext4"
+    volumeID: "vol-0572afea6012336e6"

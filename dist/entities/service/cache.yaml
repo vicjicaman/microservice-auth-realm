@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-cache-service
+  namespace: microservices-namespace
+  labels:
+    moduleid: microservice-auth-realm
+    version: 1.70.3-master
+spec:
+  type: ClusterIP
+  ports:
+    -
+      port: 6379
+      targetPort: 6379
+  selector:
+    app: auth-cache-stateful
