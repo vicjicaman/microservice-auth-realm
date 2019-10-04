@@ -6,7 +6,7 @@ metadata:
   labels:
     app: auth-account-graph-deployment
     moduleid: microservice-auth-realm
-    version: 1.70.0-data-reconnect-realm-prod
+    version: 1.70.1-data-reconnect-realm-prod
 spec:
   replicas: 2
   selector:
