@@ -30,7 +30,22 @@ spec:
               value: '4000'
             -
               name: AUTH_DATA_INTERNAL_URL
-              value: 'auth-data-service.microservices-namespace:27017/auth'
+              value: 'auth-data-service.microservices-namespace:27017'
+            -
+              name: AUTH_DATA_NAME
+              value: accounts
+            -
+              name: AUTH_DATA_SECRET_USER
+              valueFrom:
+                secretKeyRef:
+                  name: auth-data-secret
+                  key: user
+            -
+              name: AUTH_DATA_SECRET_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: auth-data-secret
+                  key: user_password
           ports:
             -
               containerPort: 4000
