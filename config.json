@@ -6,11 +6,11 @@
     },
     "microservice-auth-config": {
       "url": "github.com:vicjicaman/microservice-auth-config.git",
-      "version": "file:./../microservice-auth-config"
+      "version": "1.70.0-rm-cache-vol-prod"
     },
     "microservice-resources-config": {
       "url": "github.com:vicjicaman/microservice-resources-config.git",
-      "version": "file:./../microservice-resources-config"
+      "version": "1.70.0-rm-cache-vol-prod"
     }
   },
   "config": [

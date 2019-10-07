@@ -1,43 +1,51 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "${ACCOUNT_GRAPH_DEPLOYMENT_NAME}"
-  namespace: "${NAMESPACE@microservice-config}"
+  name: '${ACCOUNT_GRAPH_DEPLOYMENT_NAME}'
+  namespace: '${NAMESPACE@microservice-config}'
   labels:
-    app: "${ACCOUNT_GRAPH_DEPLOYMENT_NAME}"
+    app: '${ACCOUNT_GRAPH_DEPLOYMENT_NAME}'
     moduleid: microservice-auth-realm
-    version: 1.70.3-master
+    version: 1.70.0-rm-cache-vol-prod
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: "${ACCOUNT_GRAPH_DEPLOYMENT_NAME}"
+      app: '${ACCOUNT_GRAPH_DEPLOYMENT_NAME}'
   template:
     metadata:
       labels:
-        app: "${ACCOUNT_GRAPH_DEPLOYMENT_NAME}"
+        app: '${ACCOUNT_GRAPH_DEPLOYMENT_NAME}'
     spec:
       containers:
-        - name: app
-          image: "repoflow/microservice-account-graph-container:1.70.4-master"
+        -
+          name: app
+          image: 'repoflow/microservice-account-graph-container:1.70.0-rm-cache-vol-prod'
           env:
-            - name: ACCOUNT_ROUTE_GRAPH
-              value: "${ACCOUNT_GRAPH_BASE_ROUTE@microservice-auth-config}"
-            - name: ACCOUNT_INTERNAL_PORT_GRAPH
-              value: "${ACCOUNT_GRAPH_INTERNAL_PORT@microservice-auth-config}"
-            - name: AUTH_DATA_INTERNAL_URL
-              value: "${DATA_INTERNAL_URL@microservice-auth-config}"
-            - name: AUTH_DATA_NAME
-              value: "${DATA_NAME@microservice-auth-config}"
-            - name: AUTH_DATA_SECRET_USER
+            -
+              name: ACCOUNT_ROUTE_GRAPH
+              value: '${ACCOUNT_GRAPH_BASE_ROUTE@microservice-auth-config}'
+            -
+              name: ACCOUNT_INTERNAL_PORT_GRAPH
+              value: '${ACCOUNT_GRAPH_INTERNAL_PORT@microservice-auth-config}'
+            -
+              name: AUTH_DATA_INTERNAL_URL
+              value: '${DATA_INTERNAL_URL@microservice-auth-config}'
+            -
+              name: AUTH_DATA_NAME
+              value: '${DATA_NAME@microservice-auth-config}'
+            -
+              name: AUTH_DATA_SECRET_USER
               valueFrom:
                 secretKeyRef:
-                  name: "${DATA_SECRET_NAME@microservice-auth-config}"
+                  name: '${DATA_SECRET_NAME@microservice-auth-config}'
                   key: user
-            - name: AUTH_DATA_SECRET_PASSWORD
+            -
+              name: AUTH_DATA_SECRET_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: "${DATA_SECRET_NAME@microservice-auth-config}"
+                  name: '${DATA_SECRET_NAME@microservice-auth-config}'
                   key: user_password
           ports:
-            - containerPort: "${ACCOUNT_GRAPH_INTERNAL_PORT@microservice-auth-config}"
+            -
+              containerPort: '${ACCOUNT_GRAPH_INTERNAL_PORT@microservice-auth-config}'
