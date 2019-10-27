@@ -5,7 +5,7 @@ metadata:
   namespace: '${NAMESPACE@microservice-config}'
   labels:
     moduleid: microservice-auth-data
-    version: 1.70.3-master
+    version: 1.70.4-master
 spec:
   serviceName: '${DATA_SERVICE_NAME@microservice-auth-config}'
   selector:
@@ -23,17 +23,36 @@ spec:
       containers:
         -
           name: data
-          image: 'mongo:4.2.0'
-          command:
-            - mongod
-            - '--bind_ip_all'
+          image: 'bitnami/mongodb:4.0.12'
           ports:
             -
               containerPort: '${DATA_INTERNAL_PORT@microservice-auth-config}'
           volumeMounts:
             -
               name: data
-              mountPath: /data/db
+              mountPath: /bitnami
+          env:
+            -
+              name: MONGODB_DATABASE
+              value: '${DATA_NAME@microservice-auth-config}'
+            -
+              name: MONGODB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: '${DATA_SECRET_NAME@microservice-auth-config}'
+                  key: user
+            -
+              name: MONGODB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: '${DATA_SECRET_NAME@microservice-auth-config}'
+                  key: user_password
+            -
+              name: MONGODB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: '${DATA_SECRET_NAME@microservice-auth-config}'
+                  key: root_password
       volumes:
         -
           name: data

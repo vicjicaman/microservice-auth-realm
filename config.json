@@ -6,11 +6,11 @@
     },
     "microservice-auth-config": {
       "url": "github.com:vicjicaman/microservice-auth-config.git",
-      "version": "1.70.6-master"
+      "version": "1.70.7-master"
     },
     "microservice-resources-config": {
       "url": "github.com:vicjicaman/microservice-resources-config.git",
-      "version": "1.70.3-master"
+      "version": "1.70.5-master"
     }
   },
   "config": [
@@ -49,6 +49,10 @@
     {
       "name": "DATA_STATEFUL_NAME",
       "value": "auth-data-stateful"
+    },
+    {
+      "name": "DATA_INIT_SECRET_NAME",
+      "value": "auth-data-init-secret"
     }
   ]
 }

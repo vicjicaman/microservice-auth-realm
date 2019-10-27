@@ -6,7 +6,7 @@ metadata:
   labels:
     app: '${ACCOUNT_GRAPH_DEPLOYMENT_NAME}'
     moduleid: microservice-auth-realm
-    version: 1.70.3-master
+    version: 1.70.4-master
 spec:
   replicas: 2
   selector:
@@ -20,7 +20,7 @@ spec:
       containers:
         -
           name: app
-          image: 'repoflow/microservice-account-graph-container:1.70.4-master'
+          image: 'repoflow/microservice-account-graph-container:1.70.5-master'
           env:
             -
               name: ACCOUNT_ROUTE_GRAPH
@@ -31,6 +31,21 @@ spec:
             -
               name: AUTH_DATA_INTERNAL_URL
               value: '${DATA_INTERNAL_URL@microservice-auth-config}'
+            -
+              name: AUTH_DATA_NAME
+              value: '${DATA_NAME@microservice-auth-config}'
+            -
+              name: AUTH_DATA_SECRET_USER
+              valueFrom:
+                secretKeyRef:
+                  name: '${DATA_SECRET_NAME@microservice-auth-config}'
+                  key: user
+            -
+              name: AUTH_DATA_SECRET_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: '${DATA_SECRET_NAME@microservice-auth-config}'
+                  key: user_password
           ports:
             -
               containerPort: '${ACCOUNT_GRAPH_INTERNAL_PORT@microservice-auth-config}'

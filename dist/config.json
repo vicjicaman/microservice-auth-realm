@@ -34,5 +34,9 @@
   "DATA_STATEFUL_NAME": {
     "value": "auth-data-stateful",
     "type": null
+  },
+  "DATA_INIT_SECRET_NAME": {
+    "value": "auth-data-init-secret",
+    "type": null
   }
 }
