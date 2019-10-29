@@ -4,6 +4,8 @@ metadata:
   name: "${DATA_VOLUME_NAME}"
   namespace: ${NAMESPACE@microservice-config}
   labels:
+    moduleid: microservice-auth-realm
+    version: 1.70.4-master
     service: "${DATA_SERVICE_NAME@microservice-auth-config}"
 spec:
   capacity:
