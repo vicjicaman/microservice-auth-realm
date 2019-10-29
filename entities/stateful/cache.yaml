@@ -5,7 +5,7 @@ metadata:
   namespace: '${NAMESPACE@microservice-config}'
   labels:
     moduleid: microservice-auth-realm
-    version: 1.70.0-blog-comments-prod
+    version: 1.70.5-master
 spec:
   serviceName: '${CACHE_SERVICE_NAME@microservice-auth-config}'
   selector:
