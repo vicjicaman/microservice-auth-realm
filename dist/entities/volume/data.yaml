@@ -6,9 +6,6 @@ metadata:
   labels:
     moduleid: microservice-auth-realm
     version: 1.70.4-master
-    fsOwner: "1000"
-    fsGroup: "0"
-    fsMode: "ugo=r,a+X,ug+xw"
     service: "auth-data-service"
 spec:
   capacity:
