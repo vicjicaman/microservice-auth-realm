@@ -7,6 +7,9 @@ metadata:
     moduleid: microservice-auth-realm
     version: 1.70.4-master
     service: "auth-data-service"
+    fsOwner: "1001"
+    fsGroup: "0"
+    fsMode: "775"
 spec:
   capacity:
     storage: "1Gi"
