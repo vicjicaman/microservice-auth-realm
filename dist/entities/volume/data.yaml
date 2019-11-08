@@ -1,8 +1,8 @@
 apiVersion: "v1"
 kind: "PersistentVolume"
 metadata:
-  name: "auth-data-volume"
-  namespace: microservices-namespace
+  name: "blog-repoflow-auth-data-volume"
+  namespace: repoflow-blog-namespace
   labels:
     service: "auth-data-service"
     fsOwner: "1001"
@@ -10,9 +10,9 @@ metadata:
     fsMode: "775"
 spec:
   capacity:
-    storage: "1Gi"
+    storage: "500Mi"
   accessModes:
     - "ReadWriteOnce"
-  awsElasticBlockStore:
-    fsType: "ext4"
-    volumeID: "vol-0572afea6012336e7"
+  storageClassName: local-storage
+  hostPath:
+    path: /home/docker/production/blog.repoflow.com/volumes/blog-repoflow-auth-data-volume
