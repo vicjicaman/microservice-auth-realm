@@ -1,6 +1,6 @@
 {
   "CACHE_VOLUME_NAME": {
-    "value": "auth-cache-volume",
+    "value": "blog-repoflow-auth-cache-volume",
     "type": null
   },
   "CACHE_CLAIM_NAME": {
@@ -8,7 +8,7 @@
     "type": null
   },
   "DATA_VOLUME_NAME": {
-    "value": "auth-data-volume",
+    "value": "blog-repoflow-auth-data-volume",
     "type": null
   },
   "DATA_CLAIM_NAME": {

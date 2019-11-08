@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: auth-web-deployment
-  namespace: microservices-namespace
+  namespace: repoflow-blog-namespace
   labels:
     app: auth-web-deployment
     moduleid: microservice-auth-realm
@@ -24,7 +24,7 @@ spec:
           env:
             -
               name: HOST
-              value: www.repoflow.com
+              value: blog.repoflow.com
             -
               name: AUTH_BASE_ROUTE_APP
               value: /auth
@@ -33,10 +33,10 @@ spec:
               value: '3000'
             -
               name: AUTH_EXTERNAL_URL_GRAPH
-              value: 'https://www.repoflow.com/auth/backend/graphql'
+              value: 'https://blog.repoflow.com/auth/backend/graphql'
             -
               name: AUTH_INTERNAL_URL_GRAPH
-              value: 'http://auth-graph-service.microservices-namespace:4000/auth/backend/graphql'
+              value: 'http://auth-graph-service.repoflow-blog-namespace:4000/auth/backend/graphql'
             -
               name: RESOURCE_BASE_ROUTE
               value: /resources

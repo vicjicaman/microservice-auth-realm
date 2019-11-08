@@ -1,8 +1,8 @@
 apiVersion: "v1"
 kind: "PersistentVolume"
 metadata:
-  name: "auth-cache-volume"
-  namespace: microservices-namespace
+  name: "blog-repoflow-auth-cache-volume"
+  namespace: repoflow-blog-namespace
   labels:
     service: "auth-cache-service"
 spec:

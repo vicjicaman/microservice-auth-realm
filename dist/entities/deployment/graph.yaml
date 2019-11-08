@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: auth-graph-deployment
-  namespace: microservices-namespace
+  namespace: repoflow-blog-namespace
   labels:
     app: auth-graph-deployment
     moduleid: microservice-auth-realm
@@ -30,7 +30,7 @@ spec:
               value: '4000'
             -
               name: AUTH_CACHE_INTERNAL_HOST
-              value: auth-cache-service.microservices-namespace
+              value: auth-cache-service.repoflow-blog-namespace
             -
               name: AUTH_CACHE_INTERNAL_PORT
               value: '6379'
@@ -42,7 +42,7 @@ spec:
                   key: password
             -
               name: ACCOUNT_INTERNAL_URL_GRAPH
-              value: 'http://auth-account-graph-service.microservices-namespace:4000/graphql'
+              value: 'http://auth-account-graph-service.repoflow-blog-namespace:4000/graphql'
           ports:
             -
               containerPort: 4000

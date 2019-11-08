@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: auth-account-graph-deployment
-  namespace: microservices-namespace
+  namespace: repoflow-blog-namespace
   labels:
     app: auth-account-graph-deployment
     moduleid: microservice-auth-realm
@@ -30,7 +30,7 @@ spec:
               value: '4000'
             -
               name: AUTH_DATA_INTERNAL_URL
-              value: 'auth-data-service.microservices-namespace:27017'
+              value: 'auth-data-service.repoflow-blog-namespace:27017'
             -
               name: AUTH_DATA_NAME
               value: accounts
