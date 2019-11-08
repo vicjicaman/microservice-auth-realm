@@ -7,9 +7,9 @@ metadata:
     service: "auth-cache-service"
 spec:
   capacity:
-    storage: "1Gi"
+    storage: "100Mi"
   accessModes:
     - "ReadWriteOnce"
-  awsElasticBlockStore:
-    fsType: "ext4"
-    volumeID: "vol-0572afea6012336e6"
+  storageClassName: local-storage
+  hostPath:
+    path: /home/docker/production/blog.repoflow.com/volumes/blog-repoflow-auth-cache-volume

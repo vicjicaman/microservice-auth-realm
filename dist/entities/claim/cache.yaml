@@ -4,12 +4,12 @@ metadata:
   name: auth-cache-volume-claim
   namespace: 'repoflow-blog-namespace'
 spec:
-  storageClassName: standard
+  storageClassName: local-storage
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
+      storage: 100Mi
   selector:
     matchLabels:
       service: "auth-cache-service"

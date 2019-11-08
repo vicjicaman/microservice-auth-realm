@@ -20,7 +20,7 @@ spec:
       containers:
         -
           name: app
-          image: 'repoflow/microservice-account-graph-container:1.70.6-master'
+          image: 'repoflow/microservice-account-graph-container:1.70.7-master'
           env:
             -
               name: ACCOUNT_ROUTE_GRAPH
