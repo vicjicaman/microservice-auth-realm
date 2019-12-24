@@ -5,7 +5,7 @@ metadata:
   namespace: repoflow-blog-namespace
   labels:
     moduleid: microservice-auth-data
-    version: 1.70.0-ingress-to-realm-prod
+    version: 1.70.8-master
 spec:
   serviceName: auth-data-service
   selector:
