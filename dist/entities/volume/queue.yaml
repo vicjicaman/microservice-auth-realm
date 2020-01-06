@@ -1,0 +1,15 @@
+apiVersion: "v1"
+kind: "PersistentVolume"
+metadata:
+  name: "microservice-repoflow-auth-queue-volume"
+  namespace: ${NAMESPACE@linker-config}
+  labels:
+    service: "auth-queue-service"
+spec:
+  capacity:
+    storage: "100Mi"
+  accessModes:
+    - "ReadWriteOnce"
+  storageClassName: local-storage
+  hostPath:
+    path: /home/docker/production/${HOST@linker-config}/volumes/microservice-repoflow-auth-queue-volume

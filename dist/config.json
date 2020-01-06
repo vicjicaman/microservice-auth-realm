@@ -38,5 +38,25 @@
   "DATA_INIT_SECRET_NAME": {
     "value": "auth-data-init-secret",
     "type": null
+  },
+  "QUEUE_VOLUME_NAME": {
+    "value": "microservice-repoflow-auth-queue-volume",
+    "type": null
+  },
+  "QUEUE_CLAIM_NAME": {
+    "value": "auth-queue-volume-claim",
+    "type": null
+  },
+  "QUEUE_STATEFUL_NAME": {
+    "value": "auth-queue-stateful",
+    "type": null
+  },
+  "TOKEN_SECRET_NAME": {
+    "value": "auth-token-secret",
+    "type": null
+  },
+  "EMAIL_SECRET_NAME": {
+    "value": "auth-email-secret",
+    "type": null
   }
 }
