@@ -6,7 +6,7 @@ metadata:
   labels:
     app: auth-account-graph-deployment
     moduleid: microservice-auth-realm
-    version: 1.70.9-master
+    version: 1.70.10-master
 spec:
   replicas: 2
   selector:

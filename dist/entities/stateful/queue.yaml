@@ -2,10 +2,10 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: auth-queue-stateful
-  namespace: '${NAMESPACE@linker-config}'
+  namespace: repoflow-blog-namespace
   labels:
-    moduleid: linker-auth-realm
-    version: 1.70.9-master
+    moduleid: microservice-auth-realm
+    version: 1.70.10-master
 spec:
   serviceName: auth-queue-service
   selector:
