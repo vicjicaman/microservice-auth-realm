@@ -23,6 +23,15 @@ spec:
           image: 'repoflow/microservice-auth-graph-container:1.70.9-master'
           env:
             -
+              name: ENV_MODE
+              value: production
+            -
+              name: NODE_ENV
+              value: production
+            -
+              name: ENV_LOG_FOLDER
+              value: /env/logs
+            -
               name: AUTH_ROUTE_GRAPH
               value: '${GRAPH_BASE_ROUTE@microservice-auth-config}'
             -
@@ -43,6 +52,54 @@ spec:
             -
               name: ACCOUNT_INTERNAL_URL_GRAPH
               value: '${ACCOUNT_GRAPH_INTERNAL_URL@microservice-auth-config}'
+            -
+              name: AUTH_QUEUE_INTERNAL_HOST
+              value: '${QUEUE_INTERNAL_HOST@microservice-auth-config}'
+            -
+              name: AUTH_QUEUE_INTERNAL_PORT
+              value: '${QUEUE_INTERNAL_PORT@microservice-auth-config}'
+            -
+              name: AUTH_QUEUE_SECRET_USER
+              valueFrom:
+                secretKeyRef:
+                  name: '${QUEUE_SECRET_NAME@microservice-auth-config}'
+                  key: user
+            -
+              name: AUTH_QUEUE_SECRET_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: '${QUEUE_SECRET_NAME@microservice-auth-config}'
+                  key: password
+            -
+              name: AUTH_TOKEN_PRIVATE
+              valueFrom:
+                secretKeyRef:
+                  name: '${TOKEN_SECRET_NAME}'
+                  key: token.private
+            -
+              name: AUTH_TOKEN_PUBLIC
+              valueFrom:
+                secretKeyRef:
+                  name: '${TOKEN_SECRET_NAME}'
+                  key: token.public
+            -
+              name: AUTH_EMAIL_CLIENTID
+              valueFrom:
+                secretKeyRef:
+                  name: '${EMAIL_SECRET_NAME}'
+                  key: clientid
+            -
+              name: AUTH_EMAIL_CLIENT
+              valueFrom:
+                secretKeyRef:
+                  name: '${EMAIL_SECRET_NAME}'
+                  key: client
+            -
+              name: AUTH_EMAIL_REFRESH
+              valueFrom:
+                secretKeyRef:
+                  name: '${EMAIL_SECRET_NAME}'
+                  key: refresh
           ports:
             -
               containerPort: '${GRAPH_INTERNAL_PORT@microservice-auth-config}'

@@ -23,6 +23,15 @@ spec:
           image: 'repoflow/microservice-auth-graph-container:1.70.9-master'
           env:
             -
+              name: ENV_MODE
+              value: production
+            -
+              name: NODE_ENV
+              value: production
+            -
+              name: ENV_LOG_FOLDER
+              value: /env/logs
+            -
               name: AUTH_ROUTE_GRAPH
               value: /auth/backend/graphql
             -
@@ -43,6 +52,54 @@ spec:
             -
               name: ACCOUNT_INTERNAL_URL_GRAPH
               value: 'http://auth-account-graph-service.repoflow-blog-namespace:4000/graphql'
+            -
+              name: AUTH_QUEUE_INTERNAL_HOST
+              value: auth-queue-service.repoflow-blog-namespace
+            -
+              name: AUTH_QUEUE_INTERNAL_PORT
+              value: '5672'
+            -
+              name: AUTH_QUEUE_SECRET_USER
+              valueFrom:
+                secretKeyRef:
+                  name: auth-queue-secret
+                  key: user
+            -
+              name: AUTH_QUEUE_SECRET_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: auth-queue-secret
+                  key: password
+            -
+              name: AUTH_TOKEN_PRIVATE
+              valueFrom:
+                secretKeyRef:
+                  name: auth-token-secret
+                  key: token.private
+            -
+              name: AUTH_TOKEN_PUBLIC
+              valueFrom:
+                secretKeyRef:
+                  name: auth-token-secret
+                  key: token.public
+            -
+              name: AUTH_EMAIL_CLIENTID
+              valueFrom:
+                secretKeyRef:
+                  name: auth-email-secret
+                  key: clientid
+            -
+              name: AUTH_EMAIL_CLIENT
+              valueFrom:
+                secretKeyRef:
+                  name: auth-email-secret
+                  key: client
+            -
+              name: AUTH_EMAIL_REFRESH
+              valueFrom:
+                secretKeyRef:
+                  name: auth-email-secret
+                  key: refresh
           ports:
             -
               containerPort: 4000

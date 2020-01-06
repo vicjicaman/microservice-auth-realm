@@ -23,6 +23,15 @@ spec:
           image: 'repoflow/microservice-account-graph-container:1.70.7-master'
           env:
             -
+              name: ENV_MODE
+              value: production
+            -
+              name: NODE_ENV
+              value: production
+            -
+              name: ENV_LOG_FOLDER
+              value: /env/logs
+            -
               name: ACCOUNT_ROUTE_GRAPH
               value: '${ACCOUNT_GRAPH_BASE_ROUTE@microservice-auth-config}'
             -
